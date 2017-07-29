@@ -13,3 +13,5 @@
 .idea
 js
 css
+!/src/AppBundle/Resources/public/css/
+!/src/AppBundle/Resources/public/js/
