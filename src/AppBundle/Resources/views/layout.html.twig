@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Welcome!{% endblock %}</title>
 
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        {% stylesheets 'bundles/app/css/*' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+    {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-    <link rel="stylesheet" href="https://bootswatch.com/journal/bootstrap.min.css">
-    <link rel="stylesheet" href="CSS/style.css">
-
 </head>
 <body>
 
@@ -81,10 +82,11 @@
 
 </div>
 
+{% block javascripts %}
+    {% javascripts '@AppBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
 
-{% block javascripts %}{% endblock %}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
